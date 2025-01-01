@@ -1,6 +1,6 @@
 @host = https://localhost
 @port = 7182
-@token = CfDJ8LuU4hXVkgNLsS07JvpBoV8Y01q12oCoxqP9SM2vfpn7eR39luWLHjvffpRFD3p2cKwtiy10139NL_uNjw4_XAGsro_X6UrZFctoB8AeIANF5Eye3WOkJ6DpwxZL_fAruS60SBVvCPxEIsGcw-fABhjPIekIqAodV1W_Aj5_UNfJZYXd3CEknCpsqNQP3PsKjJ7YcB4hQ-ZwzYVcoTprc3ccok1RxdDwsM6o5zLPwtaWK8rGoVWXyjTee4mFeGlaIYMHjOp8h81FcFk2gTp1em0SbnbC6nSjFl8hQQ6ldf7tbeav6i0azeOZ50hen2ZkBZOG2Yz_c2Dd31TYw2q-suqEBVw71a8aIAsWQOpoiDXRFjClEca_nKCGOfLT_qPwczG-E1eeKGfdFHOQLqOqT3mC9qbnRwQQWs5us27uxM3m7Ytd5wSDdD8Ma6vVGh-H7grSKF-WtOynKVhg1Aiu6G4JtsDl8SZCYXDOqMeaOZjSdg7jkjW8jrTky2bDaGr8Uj2H7koZ643-TNBalDRAhaugQCnrrucoWh0SLWJHt9bn13t-0wdz5HVmu7fsnILnUVq-mr8lW3HghlJyW1U9KJSJgy4iElXNiMBHNC24HFL211XZ6B4kM26rjhT2k7AT2G3f67v4DaKg-xeXPYVeuYdcCQXaQABFDjLOQ9fjzEyKv2aDkCePtyuhYfbwe4r17NKvq17QNqF8AYctzqa40ArXOXxGNjCXMsBm1UZGH2Bbx2y-GBHxshv1tU7atlqpN0-Qlr5QCSuYwDHUSNHKCQVJNUbig6gQMrbyKijcgF_U
+@token = CfDJ8LuU4hXVkgNLsS07JvpBoV9c77e4oTRzuBvuv2jd7O6s7wHNETnNiM7ytoyEvow-0RY8_Cn06QO6UD8KhfmVETtW8ipuAvi-HKX2vz7eOQwaMdfzDRrCF2AdZH5S9I3JK1nkvDys1gMejpEhPAQUW4cbXuKMsIR08W_MH6F2kYseehbZ2QsY4sPqK_3O8ugQy5snTFKPMLwhqYSho3z7MiuAW1IScAtynkTwsUH6oV3bU5EK9WbWanCa72Y63btEycaqEXK-WDsolKE7QgQLiio-CZQOcSnfLwhRAu7d7C1Zh5Z6VkGuwbnkLGXmmhHwifRcaLaSqtZHtWAKDIz1dl-XHXlNuHTfIrxO4vOWJwJq8PZzsL09TQyag7VA-bjeiYiVlLGBl7IrhGbs_iAyhJxxn2hHzkbvWXNFoRexBpq-Wz0SyDw5o4H8wMjixHg5je7hdI1NXtH7YVUQ05ZyjTkblk0TSe6l2aIbp6ywJbQ2aBchVCNIDYGJbNGQQnqxD9T94ArNcIoFC2Z3TFhvWzHOyYLDjB0SN7sVQdawUaGsd2XppIoAIhh22ytBNEuugbjPwQH1FoNsH-xjttoNV4fJjqCgEZBW_EE9Sw8tx6zahSTnWiTZw2oSW2xznILWZRg1Y0prNLN7GCTFr00cvy0XaTHqlH6Yp9nCCsJfHx6lFbL9hQq5eh0kx6jd5m_sEgjcsRN8nJAJh3XDxD7AyJE2EuZu4xpUYGfM8FXx0PNNwz_QRWZ3-A2wF7wVDy33FTuLSofJa9pD6TBc98XEWvzN4UTgVer8ytHXCjwsSv7w
 
 @Restaurants.API_HostAddress = https://localhost:7182
 
@@ -22,7 +22,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "Name":"Owner restaurant",
+  "Name":"Owner2 restaurant2",
   "Description": "A cozy restaurant serving a variety of delicious dishes.",
   "Category": "Indian",
   "HasDelivery": true,
@@ -74,7 +74,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "email":"user@test.com",
+  "email":"admin@test.com",
   "password":"Password1!"
 }
 
@@ -83,7 +83,7 @@ Post {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email":"admin@test.com",
+  "email":"owner2@test.com",
   "password":"Password1!"
 }
 
@@ -95,6 +95,17 @@ Authorization: Bearer {{token}}
 {
   "Nationality":"French",
   "DateOfBirth": "2010-01-01"
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/userRole
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "UserEmail":"owner2@test.com",
+  "RoleName":"Owner"
 }
 
 ###
