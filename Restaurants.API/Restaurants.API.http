@@ -1,6 +1,6 @@
 @host = https://localhost
 @port = 7182
-@token = CfDJ8LuU4hXVkgNLsS07JvpBoV_lFqCLRtqflmZOVPy376Vg4b9IbZwD5PWzjI1IrEkZa6m5SluPCicOtUwKXABVLdqTt1GRqwlI9S8-HkeDXum36MIXPYe6yiHzN8BL_5rrrN7uu8f77dHA11UNZJGibugem13q0nMxm72Jzr1kgtMbH__9EZcU4yVsuUC0P8579hvCF5X9VPYNfWAgDgjXNegVkSNAc6lj26a7hJTeLiNZ9AJhRQZu40-KLo_uwQ2EF_bJihcGvwPeD98c3AkXJGvwb72iVfR0v6J1vdJANlvgfMqPtkYFpG4ola2Viema7CUys7VrAliZXPPoCzQObDG5uT6OdL_EoNZhF39uue3wQVFdYA0mibfCiCqkt2iNx46SXyFzu6dkJLXGihbiUF_iWoyI80v9Z7sw3ytahuNaAnCksk6rfVp04d7q1K6e9UVwfSpgM7RZWbkGxJkNqqusNjmwkTgz4hwHhbXTG90Hb5zaVFHQ1Q4_fX3AqoxoTuV9yrjYJbIcaSZ03OxlVFTiE2GMASglV4C0u0YWYBtUOqhM7Z8vtQzsCuskqTaLjQig49uq0WvnR25uDpakC5qiQ0EiI7H0rSuH3hqyRiBs2H75P-8pGkZD91SHtQRfVxoThN9krWLifUf9324PQDy7tsUqD8cIGRwP7hYCme9Gj_nLW11cTqGwkj5oHkLURo2eE6ySAKQexOtAp11G6Hwjxksmdsiteu1x6Wq-PxojqseFkqIbqgKlwG5qSlia9bXYFrMaFgJcwDW5Hw48utF0ydjmLgf-hTyZiNV-yZYJ40lzbUwp40-dcQib2m8RjMhBhA_CcrKq_a7gTqam7mpQzRHnvo4sVEZAAQS53L718c28ld2_IVyt2YbgQu9Www
+@token = CfDJ8LuU4hXVkgNLsS07JvpBoV8Y01q12oCoxqP9SM2vfpn7eR39luWLHjvffpRFD3p2cKwtiy10139NL_uNjw4_XAGsro_X6UrZFctoB8AeIANF5Eye3WOkJ6DpwxZL_fAruS60SBVvCPxEIsGcw-fABhjPIekIqAodV1W_Aj5_UNfJZYXd3CEknCpsqNQP3PsKjJ7YcB4hQ-ZwzYVcoTprc3ccok1RxdDwsM6o5zLPwtaWK8rGoVWXyjTee4mFeGlaIYMHjOp8h81FcFk2gTp1em0SbnbC6nSjFl8hQQ6ldf7tbeav6i0azeOZ50hen2ZkBZOG2Yz_c2Dd31TYw2q-suqEBVw71a8aIAsWQOpoiDXRFjClEca_nKCGOfLT_qPwczG-E1eeKGfdFHOQLqOqT3mC9qbnRwQQWs5us27uxM3m7Ytd5wSDdD8Ma6vVGh-H7grSKF-WtOynKVhg1Aiu6G4JtsDl8SZCYXDOqMeaOZjSdg7jkjW8jrTky2bDaGr8Uj2H7koZ643-TNBalDRAhaugQCnrrucoWh0SLWJHt9bn13t-0wdz5HVmu7fsnILnUVq-mr8lW3HghlJyW1U9KJSJgy4iElXNiMBHNC24HFL211XZ6B4kM26rjhT2k7AT2G3f67v4DaKg-xeXPYVeuYdcCQXaQABFDjLOQ9fjzEyKv2aDkCePtyuhYfbwe4r17NKvq17QNqF8AYctzqa40ArXOXxGNjCXMsBm1UZGH2Bbx2y-GBHxshv1tU7atlqpN0-Qlr5QCSuYwDHUSNHKCQVJNUbig6gQMrbyKijcgF_U
 
 @Restaurants.API_HostAddress = https://localhost:7182
 
@@ -13,8 +13,8 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{9fc9098d-57dc-4e13-de17-08d
 Authorization: Bearer {{token}}
 ###
 
-Delete {{Restaurants.API_HostAddress}}/api/restaurants/{eeafdd9f-9e64-4052-e2d1-08dcf00b358a}
-
+Delete {{Restaurants.API_HostAddress}}/api/restaurants/{99531131-463c-4451-d8ef-08dd0648550d}
+Authorization: Bearer {{token}}
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
@@ -34,11 +34,12 @@ Content-Type: application/json
 }
 
 ###
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{0dcc2410-0f1e-421d-e22b-08dcd8aedf0e}
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{46a975e8-bc81-48a9-73f7-08dd1684bbe2}
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "Name":"sample delights",
+  "Name":"Updated name",
   "Description": "A culinary experience like no other",
   "HasDelivery": true
 }
@@ -82,7 +83,7 @@ Post {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email":"owner@test.com",
+  "email":"admin@test.com",
   "password":"Password1!"
 }
 
