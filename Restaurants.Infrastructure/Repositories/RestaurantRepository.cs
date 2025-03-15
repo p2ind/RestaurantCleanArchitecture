@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure.Core;
+using Microsoft.EntityFrameworkCore;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Presistence;
@@ -9,9 +10,9 @@ internal class RestaurantRepository(RestaurantsDbContext dbContext) : IRestauran
 {
     public async Task<Guid> Create(Restaurant restaurant)
     {
-       await dbContext.Restaurants.AddAsync(restaurant);
-       await dbContext.SaveChangesAsync();
-       return restaurant.Id;
+        await dbContext.Restaurants.AddAsync(restaurant);
+        await dbContext.SaveChangesAsync();
+        return restaurant.Id;
     }
 
     public async Task Delete(Restaurant entity)
@@ -23,15 +24,26 @@ internal class RestaurantRepository(RestaurantsDbContext dbContext) : IRestauran
     public async Task<IEnumerable<Restaurant>> GetAllAsync()
     {
         var restaurants = await dbContext.Restaurants
-            .Include(r=>r.Dishes).ToListAsync();
+            .Include(r => r.Dishes).ToListAsync();
+        return restaurants;
+    }
+
+    public async Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase)
+    {
+        var searchPhraseLower = searchPhrase?.ToLower();
+        var restaurants = await dbContext.Restaurants
+            .Include(r => r.Dishes)
+             .Where(r => searchPhraseLower == null || (r.Name.ToLower().Contains(searchPhraseLower)
+                                                   || r.Description.ToLower().Contains(searchPhraseLower)))
+            .ToListAsync();
         return restaurants;
     }
 
     public async Task<Restaurant?> GetByIdAsync(Guid id)
     {
         var restaurants = await dbContext.Restaurants
-                                        .Include(r=>r.Dishes)
-                                        .FirstOrDefaultAsync(x=>x.Id==id);
+                                        .Include(r => r.Dishes)
+                                        .FirstOrDefaultAsync(x => x.Id == id);
         return restaurants;
     }
 
